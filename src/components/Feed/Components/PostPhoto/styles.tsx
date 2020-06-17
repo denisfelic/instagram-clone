@@ -5,7 +5,13 @@ import deviceDimensions from '../../../../config/DeviceDimensions';
 
 const styles = StyleSheet.create({
     photo: {
-        height : deviceDimensions.height/2
+        height: deviceDimensions.height / 2
+    },
+    likeBtns: {
+        width:30,
+        height: 25,
+        marginTop : 5,
+        marginLeft : 5,
     }
 });
 

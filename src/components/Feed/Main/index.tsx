@@ -1,1 +1,1 @@
-export {default as Header} from './Feed';
+export { default as Feed } from './Feed';

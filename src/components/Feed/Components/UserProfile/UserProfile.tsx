@@ -8,10 +8,10 @@ export default function User({ user }: any) {
     return (
         <View>
             <View style={style.userContainer}>
-                <Image style={style.userPicture} source={require(`../../../../assets/img/img1.jpg`)} />
-                <Text>{user.name}</Text>
+                <Image style={style.userPicture} source={{uri : user.userURL}} />
+                <Text>{user.userName}</Text>
             </View>
-            <Photo />
+            <Photo user={user} />
         </View>
     )
 }
