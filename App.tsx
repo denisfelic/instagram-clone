@@ -6,7 +6,7 @@ import { Photo } from './src/components/Feed/Components/PostPhoto';
 export default function App() {
   return (
     <View>
-     <Feed />
+      <Feed />
     </View>
   );
 }

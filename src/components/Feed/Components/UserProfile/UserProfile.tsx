@@ -8,7 +8,7 @@ export default function User({ user }: any) {
     return (
         <View>
             <View style={style.userContainer}>
-                <Image style={style.userPicture} source={{uri : user.userURL}} />
+                <Image style={style.userPicture} source={{ uri: user.userURL }} />
                 <Text>{user.userName}</Text>
             </View>
             <Photo user={user} />
