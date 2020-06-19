@@ -1,53 +1,35 @@
 // Post Photo
 import React, { useState } from 'react';
 import { Image, View, Text, TouchableOpacity, Alert } from 'react-native';
-
+import { Comments } from '../Comments';
 import styles from './styles';
+import handleLikes from '../../../../api/likesBehaviorAPI';
 
 export default function Photo({ user }: any) {
 
-    const [like, setLike] = useState(false);
-    const [likesCount, setLikesCount] = useState(user.likes);
-
-    function renderLikeButton() {
-        if (like) {
-            return require('../../../../assets/img/like.png');
-        }
-        return require('../../../../assets/img/unlike.png');
-    }
-
-    function handleLike() {
-        setLike(!like);
-        handleLikesCount();
-    }
-
-    function handleLikesCount(){
-        if(!like){
-            setLikesCount(likesCount + 1);
-        }
-        else {
-            setLikesCount(likesCount - 1);
-
-        }
-    }
-
-    function renderLikesCount() {
-        return likesCount + (likesCount > 1 ? ` likes` : ` like`);
-    }
+    const [likeState, setLikeState] = useState(false);
+    const [likesAmount, setLikesAmount] = useState(user.likes);
 
     return (
-        (
+        <View>
+            <Image style={styles.photo} source={{ uri: user.url }} />
             <View>
-                <Image style={styles.photo} source={{ uri: user.url }} />
-                <View>
-                    <TouchableOpacity onPress={() => handleLike()}>
-                        <Image style={styles.likeBtns} source={renderLikeButton()} />
-                        <Text>{renderLikesCount()}</Text>
-                    </TouchableOpacity>
-                    <Text>{user.description}</Text>
-                </View>
+
+                <TouchableOpacity
+                    onPress={() => handleLikes.handleLikesButtonBehavior(likeState, setLikeState, likesAmount, setLikesAmount)}
+                >
+                    <View style={styles.likeContainer}>
+                        <Image
+                            style={styles.likeHeartIcon}
+                            source={handleLikes.renderLikeButtonIcon(likeState)}
+                        />
+                        <Text style={likeState ? styles.likesAmountTextLiked : styles.likesAmountTextNoLike}>{handleLikes.renderLikeAmountText(likesAmount)}</Text>
+                    </View>
+                </TouchableOpacity>
+                <Text>{user.description}</Text>
+                <Comments comments={user.comentarios} />
             </View>
-        )
+        </View>
     );
 }
 
