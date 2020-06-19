@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { FlatList, } from 'react-native';
-
-
-
 import { UserProfile } from '../Components/UserProfile';
 import feedAPI from '../../../api/feed';
 
@@ -31,7 +28,6 @@ const Feed = () => {
         )()
     }, []);
 
-
     return (
         <FlatList
             data={users}
@@ -41,6 +37,4 @@ const Feed = () => {
 
     );
 }
-
 export default Feed;
-

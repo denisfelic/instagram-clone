@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import deviceDimensions from '../../../../config/DeviceDimensions';
 
@@ -7,11 +7,22 @@ const styles = StyleSheet.create({
     photo: {
         height: deviceDimensions.height / 2
     },
-    likeBtns: {
-        width:30,
+    likeContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    likeHeartIcon: {
+        width: 30,
         height: 25,
-        marginTop : 5,
-        marginLeft : 5,
+        marginTop: 5,
+        marginLeft: 5,
+    },
+    likesAmountTextLiked: {
+        marginLeft: 7,
+        fontWeight: "bold"
+    },
+    likesAmountTextNoLike: {
+        marginLeft: 7,
     }
 });
 
